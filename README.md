@@ -24,10 +24,10 @@ OmniDrive is a firmware modification for MediaTek MT1959-based optical disc driv
 | Xbox 360 (XGD2/XGD3) | ✅ |
 | Xbox One/Series (XGD4) | ✅ | Game files are encrypted, encryption key is not retrievable
 | GameCube (NROM)/Wii (RVL-ROM) | ✅ |
-| GameCube (NR)/Wii (RVT-R) | ❓ |
-| Wii U (WUP-ROM?) | ⚠️ | Can be read/descrambled but not decrypted, disc key is not retrievable |
+| GameCube (NR)/Wii (RVT-R) | ✅ | May take a few minutes for the drive to recognise the disc. Support still needs to be added in dumping software.
+| Wii U (WUP-ROM?) | ⚠️ | Can be read/descrambled but not decrypted, disc key is not retrievable
 | Wii U (CAT-R) | ☑️ |
-| Dreamcast (GD-ROM/GD-R) | ❎ | Only low-density area can be read |
+| Dreamcast (GD-ROM/GD-R) | ❎ | Only low-density area can be read
 
 Key:
 * ☑️ - Native Support (without patched firmware)
