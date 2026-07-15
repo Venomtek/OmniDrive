@@ -4,7 +4,7 @@ if (NOT CMAKE_TOOLCHAIN_FILE)
     set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/arm-toolchain.cmake")
 endif()
 
-project(OmniDrive VERSION 1.0.2
+project(OmniDrive VERSION 1.0.3
         LANGUAGES C ASM)
 
 set(CMAKE_C_STANDARD 11)
