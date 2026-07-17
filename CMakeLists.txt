@@ -16,9 +16,10 @@ add_library(OmniDrive STATIC
 file(GLOB firmware_list LIST_DIRECTORIES false "${CMAKE_SOURCE_DIR}/firmware/*.bin")
 foreach(firmware_file ${firmware_list})
     cmake_path(GET firmware_file STEM LAST_ONLY firmware_name)
-    add_custom_command(OUTPUT "${CMAKE_SOURCE_DIR}/patched_firmware/${firmware_name}_OmniDrive.bin"
+    set(patched_firmware_name "${firmware_name}_OmniDrive-${PROJECT_VERSION}.bin")
+    add_custom_command(OUTPUT "${CMAKE_SOURCE_DIR}/patched_firmware/${patched_firmware_name}"
             COMMAND armips ${firmware_name}.asm
-            COMMAND python ../scripts/update_cmac.py ${CMAKE_SOURCE_DIR}/patched_firmware/${firmware_name}_OmniDrive.bin
+            COMMAND python ../scripts/update_cmac.py ${CMAKE_SOURCE_DIR}/patched_firmware/${patched_firmware_name}
             DEPENDS OmniDrive
             WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/asm
             COMMENT "Patching firmware ${firmware_name}.bin"
@@ -26,6 +27,6 @@ foreach(firmware_file ${firmware_list})
     )
     string(MAKE_C_IDENTIFIER ${firmware_name} target_name)
     add_custom_target(${target_name} ALL 
-            DEPENDS "${CMAKE_SOURCE_DIR}/patched_firmware/${firmware_name}_OmniDrive.bin"
+            DEPENDS "${CMAKE_SOURCE_DIR}/patched_firmware/${patched_firmware_name}"
     )
 endforeach()
