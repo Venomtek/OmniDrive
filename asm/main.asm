@@ -27,7 +27,7 @@ CommandTableCustom:
     .ascii "OmniDrive"
     .d8 1 ; major
     .d8 0 ; minor
-    .d8 3 ; patch
+    .d8 4 ; patch
 
 .org CommandTableEnd
     ; Set next table to custom
