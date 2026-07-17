@@ -35,7 +35,7 @@ DWORD SetBDCharacteristicsHook() {
 
 void SetErrorModeHook(DWORD discType, DWORD mask, DWORD mode) {
     // check for raw read bit
-    if ((cdb[1] & 0x80)) 
+    if (cdb[1] & 0x80) 
     {
         if (discType == 2)
             // DVD
@@ -52,10 +52,7 @@ void ChangeDiscRWModeHook(DWORD mode) {
     ChangeDiscRWMode(mode);
     
     // check for raw read bit and descramble flag
-    if (!(cdb[1] & 0x80))
-        return;
-    
-    if (!(cdb[1] & 0x10)) {
+    if ((cdb[1] & 0x80) && !(cdb[1] & 0x10)) {
         // disable descrambling
         SCRAMBLE_REGISTER_UNK1 &= ~0x08;
         SCRAMBLE_REGISTER_UNK2 &= ~0x04;
@@ -63,7 +60,7 @@ void ChangeDiscRWModeHook(DWORD mode) {
     else {
         SCRAMBLE_REGISTER_UNK1 |= 0x08;
         SCRAMBLE_REGISTER_UNK2 |= 0x04;
-    }   
+    }
 }
 
 void EnableXGD() {
