@@ -25,9 +25,9 @@ CommandTableCustom:
 
 .org InquiryDataPatch
     .ascii "OmniDrive"
-    .d8 1 ; major
-    .d8 0 ; minor
-    .d8 4 ; patch
+    .d8 VersionMajor ; major
+    .d8 VersionMinor ; minor
+    .d8 VersionPatch ; patch
 
 .org CommandTableEnd
     ; Set next table to custom

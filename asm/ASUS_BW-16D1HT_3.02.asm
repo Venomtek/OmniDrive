@@ -1,7 +1,9 @@
 .arm.little
 .thumb
 
-.Open "../firmware/ASUS_BW-16D1HT_3.02.bin","../patched_firmware/ASUS_BW-16D1HT_3.02_OmniDrive.bin",0
+.include "version.asm"
+
+.Open "../firmware/ASUS_BW-16D1HT_3.02.bin","../patched_firmware/ASUS_BW-16D1HT_3.02_OmniDrive-" + VersionMajor + "." + VersionMinor + "." + VersionPatch + ".bin",0
 
 ; Free Space
 .definedatalabel FreeSpaceStart,0x1B5000
